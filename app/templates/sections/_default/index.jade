@@ -1,0 +1,12 @@
+extends layout
+
+block body
+  header
+    .navbar
+      .container
+        ul.menu.nav.nav-pills
+          li
+            a(href='#/view1') view1
+  .container
+      div(ng-view)
+

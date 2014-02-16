@@ -1,0 +1,17 @@
+doctype html5
+html(ng-app='<%= _.slugify(appname) %>')
+  head
+    meta(charset='utf8')
+    base(href='/')
+    title Angular Express Browserify
+    link(rel='stylesheet', href='/css/app.css')
+    link(rel='stylesheet', href='/vendor/bootstrap/dist/css/bootstrap.min.css')
+  body
+    block body
+
+    script(src='/vendor/jquery/dist/jquery.min.js')
+    script(src='/vendor/angular/angular.min.js')
+    script(src='/vendor/angular-route/angular-route.min.js')
+    script(src='/vendor/bootstrap/dist/js/bootstrap.min.js')<% if (includeAngularBootstrap) { %>
+    script(src='/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js')<% } %>
+    script(src='/js/app.js')

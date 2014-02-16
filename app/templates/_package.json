@@ -1,0 +1,19 @@
+{
+  "name": "<%= _.slugify(appname) %>",
+  "version": "0.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "express": "~3.2.6",
+    "jade": "~0.31.2",
+    "browserify-middleware": "~2.3.0",
+    "transformify": "~0.1.2",
+    "browserify": "~3.28.1"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.6.3"
+  }
+}
