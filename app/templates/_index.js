@@ -5,6 +5,7 @@ var express       = require('express'),
     sections      = require('./sections'),
     http          = require('http'),
     browserify    = require('browserify-middleware'),
+    <% if (includeLess) { %>expressLess   = require('express-less'),<% } %>
     transformify  = require('transformify'),
     path          = require('path');
 
@@ -24,7 +25,8 @@ app.set('views', __dirname + '/sections');
 app.set('view engine', 'jade');
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(express.static(path.join(__dirname, 'public')));
+<% if (includeLess) { %>app.use('/css', expressLess(__dirname + '/sections/_default/less'));<% } %>
+app.use(express.static(path.join(__dirname, 'static')));
 app.use('/vendor', express.static(__dirname + '/bower_components'));
 app.use(app.router);
 
