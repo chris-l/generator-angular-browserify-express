@@ -61,7 +61,7 @@ var AngularBrowserifyExpressGenerator = yeoman.generators.Base.extend({
     this.copy('sections/index.js', 'sections/index.js');
     this.copy('.editorconfig', '.editorconfig');
     this.copy('_index.js', 'index.js');
-    this.copy('.gitignore', '.gitignore');
+    this.copy('gitignore', '.gitignore');
     this.copy('Gruntfile.js', 'Gruntfile.js');
     this.copy('_package.json', 'package.json');
     this.copy('_bower.json', 'bower.json');
