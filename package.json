@@ -20,7 +20,11 @@
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "browserify",
+    "express",
+    "angular",
+    "angularjs"
   ],
   "dependencies": {
     "yeoman-generator": "~0.16.0",
