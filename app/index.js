@@ -24,7 +24,7 @@ var AngularBrowserifyExpressGenerator = yeoman.generators.Base.extend({
     console.log(this.yeoman);
 
     // replace it with a short and sweet description of your generator
-    console.log(chalk.magenta('This generator will scaffold you the base for an angular-browserify-express app.'));
+    console.log(chalk.magenta('I will install you the base for an angular-browserify-express app!'));
 
     var prompts = [
       { type: 'checkbox',
@@ -44,19 +44,13 @@ var AngularBrowserifyExpressGenerator = yeoman.generators.Base.extend({
     }.bind(this));
   },
 
+
   app: function () {
     this.mkdir('sections');
     this.mkdir('sections/_default');
     this.mkdir('sections/view1');
     this.mkdir('static/');
 
-    if (this.includeLess) {
-      this.mkdir('sections/_default/less');
-      this.copy('app.css', 'sections/_default/less/app.less');
-    } else {
-      this.mkdir('static/css');
-      this.copy('app.css', 'static/css/app.css');
-    }
     this.copy('sections/_default/_angular-app.js', 'sections/_default/angular-app.js');
     this.copy('sections/_default/browser-requires.js', 'sections/_default/browser-requires.js');
     this.copy('sections/_default/index.jade', 'sections/_default/index.jade');
@@ -71,6 +65,16 @@ var AngularBrowserifyExpressGenerator = yeoman.generators.Base.extend({
     this.copy('Gruntfile.js', 'Gruntfile.js');
     this.copy('_package.json', 'package.json');
     this.copy('_bower.json', 'bower.json');
+  },
+
+  css : function () {
+    if (this.includeLess) {
+      this.mkdir('sections/_default/less');
+      this.copy('app.css', 'sections/_default/less/app.less');
+    } else {
+      this.mkdir('static/css');
+      this.copy('app.css', 'static/css/app.css');
+    }
   }
 
 });
