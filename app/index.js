@@ -24,7 +24,7 @@ var AngularBrowserifyExpressGenerator = yeoman.generators.Base.extend({
     console.log(this.yeoman);
 
     // replace it with a short and sweet description of your generator
-    console.log(chalk.magenta('I will install you the base for an angular-browserify-express app!'));
+    console.log(chalk.magenta('I will create you a boilerplate for an angular-browserify-express app!'));
 
     var prompts = [
       { type: 'checkbox',

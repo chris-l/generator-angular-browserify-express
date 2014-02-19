@@ -1,4 +1,4 @@
-# generator-angular-browserify-express 
+# generator-angular-browserify-express [![Build Status](https://secure.travis-ci.org/chris-l/generator-angular-browserify-express.png?branch=master)](https://travis-ci.org/chris-l/generator-angular-browserify-express)
 
 This a yeoman generator that will create the boilerplate for a AngularJS/Browserify/Express app out of the box.
 

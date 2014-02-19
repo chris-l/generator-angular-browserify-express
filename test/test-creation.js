@@ -20,12 +20,24 @@ describe('angular-browserify-express generator', function () {
   it('creates expected files', function (done) {
     var expected = [
       // add files you expect to exist here.
-      '.jshintrc',
-      '.editorconfig'
+      'sections/_default/angular-app.js',
+      'sections/_default/browser-requires.js',
+      'sections/_default/index.jade',
+      'sections/_default/layout.jade',
+      'sections/view1/partial1.jade',
+      'sections/view1/index.js',
+      'sections/view1/browser.js',
+      'sections/index.js',
+      'index.js',
+      '.gitignore',
+      'Gruntfile.js',
+      'package.json',
+      'bower.json',
+      '.editorconfig',
     ];
 
     helpers.mockPrompt(this.app, {
-      'someOption': true
+      'components': [ 'ui-bootstrap' ]
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {
