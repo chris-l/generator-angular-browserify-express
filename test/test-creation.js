@@ -26,7 +26,7 @@ describe('angular-browserify-express generator', function () {
       'sections/_default/layout.jade',
       'sections/view1/partial1.jade',
       'sections/view1/index.js',
-      'sections/view1/browser.js',
+      'sections/view1/view1.browser.js',
       'sections/index.js',
       'index.js',
       '.gitignore',

@@ -13,8 +13,8 @@ function someCtrl($scope, $http) {
   };
 }
 
-module.exports = function (angular_app) {
-  angular_app.config(function ($routeProvider) {
+module.exports = function (app) {
+  app.config(function ($routeProvider) {
     $routeProvider.when('/view1', {controller : someCtrl, templateUrl : '/html/view1/partial1.html'});
   });
 };

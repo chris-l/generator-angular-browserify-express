@@ -7,8 +7,13 @@ module.exports = function () {
   fs.readdirSync('./sections/').forEach(function (file) {
     var fullpath    = './sections/' + file,
         isDirectory = fs.lstatSync(fullpath).isDirectory();
-    if (isDirectory && file !== '_default' && fs.existsSync(fullpath + '/browser.js')) {
-      requires.push('require(\'../' + file + '/browser.js\')(app);');
+    if (isDirectory && file !== '_default') {
+      var dir = file;
+      fs.readdirSync('./sections/' + dir).forEach(function (file) {
+        if (/.*\.browser.js$/.test(file)) {
+          requires.push('injector.invoke(require(\'../' + dir + '/' + file + '\'));');
+        }
+      });
     }
   });
   return requires.join('');

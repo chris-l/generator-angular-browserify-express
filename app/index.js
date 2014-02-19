@@ -57,7 +57,7 @@ var AngularBrowserifyExpressGenerator = yeoman.generators.Base.extend({
     this.copy('sections/_default/_layout.jade', 'sections/_default/layout.jade');
     this.copy('sections/view1/partial1.jade', 'sections/view1/partial1.jade');
     this.copy('sections/view1/index.js', 'sections/view1/index.js');
-    this.copy('sections/view1/browser.js', 'sections/view1/browser.js');
+    this.copy('sections/view1/view1.browser.js', 'sections/view1/view1.browser.js');
     this.copy('sections/index.js', 'sections/index.js');
     this.copy('.editorconfig', '.editorconfig');
     this.copy('_index.js', 'index.js');
