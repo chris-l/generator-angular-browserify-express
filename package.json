@@ -4,7 +4,10 @@
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "chris-l/generator-angular-browserify-express",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chris-l/generator-angular-browserify-express"
+  },
   "author": {
     "name": "christopher luna",
     "email": "dev@christopher-luna.com",
