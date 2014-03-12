@@ -1,9 +1,17 @@
 /* jslint node: true */
-/*global angular*/
 'use strict';
 var di = require('di');
+var angular = require('angular');
+require('angular-resource');
+require('angular-route');
+require('bootstrap');
+<% if (includeAngularBootstrap) { %>require('angular-bootstrap');<% } %>
 
-var app = angular.module('<%= _.slugify(appname) %>', [ 'ngRoute'<% if (includeAngularBootstrap) { %>, 'ui.bootstrap' <% } %>]);
+var app = angular.module('<%= _.slugify(appname) %>', [
+    'ngRoute',
+    <% if (includeAngularBootstrap) { %>'ui.bootstrap',<% } %>
+    'ngResource'
+    ]);
 app.config(function ($routeProvider) {
   $routeProvider.otherwise({redirectTo : '/view1'});
 });

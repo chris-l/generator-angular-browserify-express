@@ -9,10 +9,38 @@
     "di": "0.0.1",
     "transformify": "~0.1.2",<% if (includeLess) { %>
     "express-less": "0.0.2",<% } %>
-    "browserify": "~3.28.1"
+    "browserify": "~3.28.1",
+    "browserify-shim": "^3.3.1"
   },
   "scripts": {
     "test": "grunt"
+  },
+  "browser": {
+    "jquery": "./bower_components/jquery/dist/jquery.js",
+    "angular": "./bower_components/angular/angular.js",
+    "bootstrap": "./bower_components/bootstrap/dist/js/bootstrap.js",
+    "angular-resource": "./bower_components/angular-resource/angular-resource.js",
+    "angular-route": "./bower_components/angular-route/angular-route.js"<% if (includeAngularBootstrap) { %>,
+    "angular-bootstrap": "./bower_components/angular-bootstrap/ui-bootstrap-tpls.js"<% } %>
+  },
+  "browserify-shim": {
+      "jquery": "$",
+      "angular": {
+          "exports" : "angular",
+          "depends": [ "jquery:$" ]
+      },<% if (includeAngularBootstrap) { %>
+      "angular-bootstrap": {
+          "depends": [ "angular:angular" ]
+      },<% } %>
+      "angular-resource": {
+          "depends": [ "angular:angular" ]
+      },
+      "angular-route": {
+          "depends": [ "angular:angular" ]
+      },
+      "bootstrap": {
+          "depends": [ "jquery:$" ]
+      }
   },
   "devDependencies": {
     "grunt": "~0.4.2",
