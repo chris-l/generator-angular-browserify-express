@@ -24,14 +24,14 @@ var AngularBrowserifyExpressGenerator = yeoman.generators.Base.extend({
     console.log(this.yeoman);
 
     // replace it with a short and sweet description of your generator
-    console.log(chalk.magenta('I will create you a boilerplate for an angular-browserify-express app!'));
+    console.log(chalk.magenta('I will create for you a boilerplate for an angular-browserify-express app!'));
 
     var prompts = [
       { type: 'checkbox',
         name: 'components',
         message: 'Select which components you want to use:',
         choices: [ 'ui-bootstrap', 'less' ],
-        default: [ 'ui-bootstrap' ]
+        default: [ 'ui-bootstrap', 'less' ]
       }
     ];
 
@@ -70,10 +70,10 @@ var AngularBrowserifyExpressGenerator = yeoman.generators.Base.extend({
   css : function () {
     if (this.includeLess) {
       this.mkdir('sections/_default/less');
-      this.copy('app.css', 'sections/_default/less/app.less');
+      this.copy('_app.css', 'sections/_default/less/app.less');
     } else {
       this.mkdir('static/css');
-      this.copy('app.css', 'static/css/app.css');
+      this.copy('_app.css', 'static/css/app.css');
     }
   }
 
