@@ -1,4 +1,6 @@
 node_modules/
 bower_components/
 npm-debug.log
+static/js/app.js
+static/js/app.min.js
 *.swp

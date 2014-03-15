@@ -4,10 +4,7 @@
 var express       = require('express'),
     sections      = require('./sections'),
     http          = require('http'),
-    browserify    = require('browserify-middleware'),
-    shim          = require('browserify-shim'),
     <% if (includeLess) { %>expressLess   = require('express-less'),<% } %>
-    transformify  = require('transformify'),
     path          = require('path');
 
 
@@ -38,12 +35,6 @@ app.use(app.router);
 
 // Add the routes from the sections
 sections(app);
-
-// Browserify the requires routes
-var addRequires = transformify(function (x) {
-  return x.replace('/* modules browserify */', require('./sections/_default/browser-requires.js')());
-});
-app.get('/js/app.js', browserify('./sections/_default/angular-app.js', { transform  : [ addRequires, shim ], minify : { mangle : false } }));
 
 // serve index and view partials
 app.get('/', function (req, res) {
