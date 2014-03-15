@@ -24,8 +24,9 @@ var app = express();
 app.set('port', process.env.PORT || 4000);
 app.set('views', __dirname + '/sections');
 app.set('view engine', 'jade');
-app.use(express.bodyParser());
+app.use(express.compress());
 app.use(express.methodOverride());
+app.use(express.bodyParser());
 <% if (includeLess) { %>app.use('/css', expressLess(__dirname + '/sections/_default/less'));<% } %>
 app.use(express.static(path.join(__dirname, 'static')));
 app.use('/vendor', express.static(__dirname + '/bower_components'));
