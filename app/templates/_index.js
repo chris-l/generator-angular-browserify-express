@@ -1,17 +1,23 @@
 /* jslint node: true */
 'use strict';
 
-var express       = require('express'),
-    sections      = require('./sections'),
-    http          = require('http'),
-    <% if (includeLess) { %>expressLess   = require('express-less'),<% } %>
-    path          = require('path');
+var express     = require('express'),
+  sections      = require('./sections'),
+  http          = require('http'),
+  path          = require('path'),
 
 
-/**
-  * Create server
-  */
-var app = express();
+
+// Middleware
+  bodyParser      = require('body-parser'),
+  compression     = require('compression'),
+  <% if (includeLess) { %>expressLess     = require('express-less'),<% } %>
+  methodOverride  = require('method-override'),
+  morgan          = require('morgan'),
+
+// Create server
+  app             = express();
+
 
 /**
  * Configuration
@@ -21,13 +27,13 @@ var app = express();
 app.set('port', process.env.PORT || 4000);
 app.set('views', __dirname + '/sections');
 app.set('view engine', 'jade');
-app.use(express.compress());
-app.use(express.methodOverride());
-app.use(express.bodyParser());
+app.use(morgan('dev'));
+app.use(compression());
+app.use(methodOverride());
+app.use(bodyParser.json());
 <% if (includeLess) { %>app.use('/css', expressLess(__dirname + '/sections/_default/less'));<% } %>
 app.use(express.static(path.join(__dirname, 'static')));
 app.use('/vendor', express.static(__dirname + '/bower_components'));
-app.use(app.router);
 
 /**
  * Routes
