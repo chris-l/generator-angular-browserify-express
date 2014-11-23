@@ -32,6 +32,16 @@ var AngularBrowserifyExpressGenerator = yeoman.generators.Base.extend({
         message: 'Select which components you want to use:',
         choices: [ 'ui-bootstrap', 'less' ],
         default: [ 'ui-bootstrap', 'less' ]
+      },
+      {
+        type: 'list',
+        name: 'lint',
+        message: 'What code linter would you prefer to use?',
+        choices: [
+          'jshint',
+          'jslint'
+        ],
+        default: 0
       }
     ];
 
@@ -39,6 +49,7 @@ var AngularBrowserifyExpressGenerator = yeoman.generators.Base.extend({
       var has = function (o, mod) { return o.indexOf(mod) !== -1; };
       this.includeAngularBootstrap = has(props.components, 'ui-bootstrap');
       this.includeLess = has(props.components, 'less');
+      this.useJSLint = props.lint === 'jslint';
 
       done();
     }.bind(this));
@@ -62,7 +73,7 @@ var AngularBrowserifyExpressGenerator = yeoman.generators.Base.extend({
     this.copy('.editorconfig', '.editorconfig');
     this.copy('_index.js', 'index.js');
     this.copy('gitignore', '.gitignore');
-    this.copy('Gruntfile.js', 'Gruntfile.js');
+    this.copy('_Gruntfile.js', 'Gruntfile.js');
     this.copy('_package.json', 'package.json');
     this.copy('_bower.json', 'bower.json');
   },
