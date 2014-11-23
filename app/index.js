@@ -1,11 +1,14 @@
+/*jslint node: true, indent: 2, nomen: true */
 'use strict';
-var util = require('util');
-var path = require('path');
-var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
+var util, path, yeoman, chalk, AngularBrowserifyExpressGenerator;
+
+util = require('util');
+path = require('path');
+yeoman = require('yeoman-generator');
+chalk = require('chalk');
 
 
-var AngularBrowserifyExpressGenerator = yeoman.generators.Base.extend({
+AngularBrowserifyExpressGenerator = yeoman.generators.Base.extend({
   init: function () {
     this.pkg = yeoman.file.readJSON(path.join(__dirname, '../package.json'));
 
@@ -18,7 +21,8 @@ var AngularBrowserifyExpressGenerator = yeoman.generators.Base.extend({
   },
 
   askFor: function () {
-    var done = this.async();
+    var done, prompts;
+    done = this.async();
 
     // have Yeoman greet the user
     console.log(this.yeoman);
@@ -26,8 +30,9 @@ var AngularBrowserifyExpressGenerator = yeoman.generators.Base.extend({
     // replace it with a short and sweet description of your generator
     console.log(chalk.magenta('I will create for you a boilerplate for an angular-browserify-express app!'));
 
-    var prompts = [
-      { type: 'checkbox',
+    prompts = [
+      {
+        type: 'checkbox',
         name: 'components',
         message: 'Select which components you want to use:',
         choices: [ 'ui-bootstrap', 'less' ],

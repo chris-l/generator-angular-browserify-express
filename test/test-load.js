@@ -1,4 +1,5 @@
-/*global describe, beforeEach, it*/
+/*jslint node: true, indent: 2, nomen: true, stupid:true */
+/*global describe, it*/
 'use strict';
 var assert = require('assert');
 

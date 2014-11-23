@@ -1,7 +1,10 @@
+/*jslint node: true, indent: 2, nomen: true */
 /*global describe, beforeEach, it */
 'use strict';
-var path = require('path');
-var helpers = require('yeoman-generator').test;
+var path, helpers;
+
+path = require('path');
+helpers = require('yeoman-generator').test;
 
 describe('angular-browserify-express generator', function () {
   beforeEach(function (done) {
