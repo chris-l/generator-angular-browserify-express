@@ -1,11 +1,14 @@
 /* jslint node: true */
 'use strict';
 
+/*jslint unparam:true*/
 function ctrl($scope, $http) {
+  return;
 }
+/*jslint unparam:false*/
 
 module.exports = function (app) {
-  angular_app.config(function ($routeProvider) {
-    $routeProvider.when('/view2', {controller : ctrl, templateUrl : '/html/view2/view.html'});
+  app.config(function ($routeProvider) {
+    $routeProvider.when('/view2', { controller : ctrl, templateUrl : '/html/view2/view.html' });
   });
 };

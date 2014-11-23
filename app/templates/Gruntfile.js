@@ -1,12 +1,13 @@
-/* jslint node: true */
+/*jslint node: true, indent: 2, nomen:true, stupid:true */
 'use strict';
 module.exports = function (grunt) {
+  var transformify, requires, addRequires;
 
-  var transformify = require('transformify');
-  var requires = require('./sections/_default/browser-requires.js')();
+  transformify = require('transformify');
+  requires = require('./sections/_default/browser-requires.js')();
 
 
-  var addRequires = transformify(function (x) {
+  addRequires = transformify(function (x) {
     return x.replace('/* modules browserify */', requires);
   });
     // Project configuration.
@@ -44,12 +45,11 @@ module.exports = function (grunt) {
 
     // Default task(s).
   grunt.registerTask('default', [
-      'jshint',
-      'browserify',
-      'uglify',
-      'clean'
-    ]
-  );
+    'jshint',
+    'browserify',
+    'uglify',
+    'clean'
+  ]);
 
 };
 

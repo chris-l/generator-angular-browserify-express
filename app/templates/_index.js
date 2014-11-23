@@ -1,4 +1,4 @@
-/* jslint node: true */
+/*jslint node: true, indent: 2, nomen: true, stupid:true */
 'use strict';
 
 var express     = require('express'),
@@ -43,9 +43,11 @@ app.use('/vendor', express.static(__dirname + '/bower_components'));
 sections(app);
 
 // serve index and view partials
+/*jslint unparam:true*/
 app.get('/', function (req, res) {
   res.render('_default/index');
 });
+/*jslint unparam:false*/
 app.get(/\/html\/([\w\/]+)\.html/, function (req, res) {
   var name = req.params[0];
   res.render(name);
