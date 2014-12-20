@@ -32,6 +32,15 @@ module.exports = function (grunt) {
         options: {
           transform: [ addRequires, 'browserify-shim']
         }
+      },
+      dev: {
+        files: {
+          'static/js/app.min.js': ['sections/_default/angular-app.js']
+        },
+        options: {
+          transform: [ addRequires, 'browserify-shim'],
+          browserifyOptions : { debug : true }
+        }
       }
     },
     uglify  : {
@@ -51,13 +60,17 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
 
 
-    // Default task(s).
+  // Default task(s).
   grunt.registerTask('default', [
     '<% if (useJSLint) { %>jslint<% } else { %>jshint<% } %>',
-    'browserify',
+    'browserify:dist',
     'uglify',
     'clean'
   ]);
 
+  grunt.registerTask('dev', [
+    'jslint',
+    'browserify:dev'
+  ]);
 };
 
