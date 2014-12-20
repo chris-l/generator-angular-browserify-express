@@ -11,7 +11,7 @@
     "di": "0.0.1",
     "transformify": "~0.1.2",<% if (includeLess) { %>
     "method-override": "^2.3.0",
-    "express-less": "0.0.2",<% } %>
+    "express-less": "0.0.6",<% } %>
     "browserify": "~3.28.1",
     "browserify-shim": "^3.3.1"
   },
