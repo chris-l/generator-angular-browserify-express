@@ -1,7 +1,7 @@
 {
   "name": "generator-angular-browserify-express",
   "version": "0.0.8",
-  "description": "Yeoman generator",
+  "description": "Yeoman generator that will create the boilerplate for a AngularJS/Browserify/Express app",
   "license": "MIT",
   "main": "app/index.js",
   "repository": {
